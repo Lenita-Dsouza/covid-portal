@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
@@ -31,4 +31,12 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/logout', 'LoginController@logout');
     Route::post('/register', 'AccountController@register');
     Route::get('/user', 'AccountController@index');
+});
+
+
+Route::group(['prefix' => 'api'], function() {
+    Route::get('/posts', 'PostController@index');
+    Route::post('/posts', 'PostController@store');
+    Route::put('/posts/{id}', 'PostController@update');
+    Route::delete('/posts/{id}', 'PostController@destroy');
 });

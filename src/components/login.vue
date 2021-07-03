@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     submit() {
-      auth.logIn(this.cred, "/tab1");
+      auth.logIn(this.cred, "/");
       //   const res = await auth.LogIn(this.cred);
       //   if (res.error !== true) this.$router.push("/tab1");
     },

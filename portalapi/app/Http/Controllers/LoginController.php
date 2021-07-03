@@ -36,5 +36,11 @@ class LoginController extends Controller
 
     public function logout(Request $req)
     {
+        if(auth()->check())
+        { 
+            auth()->logout(true);
+             
+        return response()->json(['error'=>false, 'message'=>'successfully logout']);
     }
+}
 }

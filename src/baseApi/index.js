@@ -6,7 +6,7 @@ let baseApi = axios.create({
 
 
 const Api = function () {
-    let token = localStorage.getItem('Token');
+    let token = localStorage.getItem('token');
     if (token) {
         baseApi.defaults.headers.common['Authorization'] = `Bearer ${token}`
     }

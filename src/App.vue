@@ -11,13 +11,12 @@
       >
         <ul>
           <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/tab1">Video Stream</router-link></li>
+          <li><router-link to="/tab1">Tab 1</router-link></li>
           <li><router-link to="/tab2">Tab 2</router-link></li>
           <li><router-link to="/tab3">Tab 3</router-link></li>
         </ul>
-        <!-- <ul v-if="!isAuth" style="margin-left: auto"> -->
-
-        <ul style="margin-left: auto">
+        <ul v-if="!isAuth" style="margin-left: auto">
+          <!-- <ul style="margin-left: auto"> -->
           <li>
             <router-link to="/login" class="btn-custom btn-custom-primary"
               >Login</router-link
@@ -29,10 +28,10 @@
             >
           </li>
         </ul>
-        <!-- <ul v-else style="margin-left:auto;">
-                    <li>Role {{ user.role + " - " + user.name }}</li>
-                    <li><a href="javascript:void(0)" @click="logout">LogOut</a> </li>
-                </ul> -->
+        <ul v-else style="margin-left: auto">
+          <li>Role {{ user.role + " - " + user.name }}</li>
+          <li><a href="javascript:void(0)" @click="logout">LogOut</a></li>
+        </ul>
       </div>
       <!-- <h4 v-if="$root.isLoading">Loading...</h4> -->
       <router-view />
@@ -41,25 +40,25 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
-// import auth from "@/auth";
+import { mapGetters } from "vuex";
+import auth from "@/auth";
 export default {
   name: "App",
-  // computed: {
-  //   ...mapGetters({
-  //     isAuth: "GET_AUTH",
-  //     user: "GET_AUTH_USER",
-  //   }),
-  // },
-  // methods: {
-  //   logout() {
-  //     auth.LogOut();
-  //   },
-  // },
+  computed: {
+    ...mapGetters({
+      isAuth: "GET_AUTH",
+      user: "GET_AUTH_USER",
+    }),
+  },
+  methods: {
+    logout() {
+      auth.LogOut();
+    },
+  },
 };
 </script>
 
-<style>
+/* <style>
 body {
   font-size: 12px;
 }
@@ -98,4 +97,4 @@ a:hover {
 .btn-custom-primary:hover {
   color: royalblue;
 }
-</style>
+</style> */
